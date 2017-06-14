@@ -27,6 +27,7 @@ const config = {
   devtool: NODE_ENV !== 'production' ? 'cheap-inline-module-source-map' : 'cheap-module-source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
+    modules: ['shared', 'node_modules'],
   },
   module: {
     rules: [

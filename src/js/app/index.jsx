@@ -11,7 +11,9 @@ injectGlobal`${normalizeCSS.toString()}`;
 
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic');
   body {
+    font-family: Roboto, sans-serif;
     background-color: #e6e7ef;
   }
 `;
