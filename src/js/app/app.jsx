@@ -6,6 +6,8 @@ import Card from 'components/Card';
 import { backgroundLight } from 'constants/colors';
 import Topbar from './components/Topbar';
 import FormContainer from './containers/FormContainer';
+import OrderSummaryContainer from './containers/OrderSummaryContainer';
+import TermsAndConditions from './components/TermsAndConditions';
 
 const LeftPane = styled.div`
   padding: 16px 32px;
@@ -17,9 +19,11 @@ const LeftPane = styled.div`
 `;
 
 const RightPane = styled.div`
-  padding: 16px 8px 8px;
+  padding: 16px;
   background-color: ${backgroundLight};
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 
   ${breakpoint('desktop')`
     width: 45%;
@@ -37,6 +41,10 @@ const StyledCard = styled(Card)`
   }
 `;
 
+const Push = styled.div`
+  margin-bottom: auto;
+`;
+
 const App = () => (
   <div>
     <Topbar />
@@ -46,7 +54,11 @@ const App = () => (
           <LeftPane>
             <FormContainer />
           </LeftPane>
-          <RightPane />
+          <RightPane>
+            <OrderSummaryContainer />
+            <Push />
+            <TermsAndConditions />
+          </RightPane>
         </StyledCard>
       </Container>
     </main>
