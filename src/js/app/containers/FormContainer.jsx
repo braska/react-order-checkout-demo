@@ -3,12 +3,19 @@ import Form from '../components/Form';
 
 export default class FormContainer extends Component {
   state = {
-    step: 2,
+    step: 1,
+  };
+
+  handleGoToStep = (step) => {
+    this.setState({ step });
   };
 
   render() {
     return (
-      <Form {...this.state} />
+      <Form
+        {...this.state}
+        handleGoToStep={this.handleGoToStep}
+      />
     );
   }
 }

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import normalizeCSS from 'normalize.css/normalize.css';
 import { injectGlobal } from 'styled-components';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import { background } from 'constants/colors';
 import App from './app';
 
@@ -30,7 +29,6 @@ const render = (Component) => {
   );
 };
 
-injectTapEventPlugin();
 render(App);
 if (__DEV__ && module.hot) {
   module.hot.accept('./app', () => render(App));

@@ -1,4 +1,6 @@
 import 'react';
 import 'react-dom';
+import 'prop-types';
 import 'styled-components';
-import 'react-tap-event-plugin';
+import 'react-icon-base';
+import 'styled-components-breakpoint';

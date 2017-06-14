@@ -1,23 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { primary } from 'constants/colors';
-import Steps from '../Steps';
+import StepsNavigator from '../StepsNavigator';
+import StepOneContainer from '../../containers/StepOneContainer';
+import StepTwoContainer from '../../containers/StepTwoContainer';
+import StepThreeContainer from '../../containers/StepThreeContainer';
+import ThankYouContainer from '../../containers/ThankYouContainer';
 
-const Title = styled.h1`
-  color: ${primary};
-  font-weight: 300;
-`;
-
-const Form = props => (
-  <div>
-    <Steps step={props.step} />
-    <Title>Shipping Info</Title>
-  </div>
-);
+const Form = (props) => {
+  if (props.step === 1) {
+    return (
+      <div>
+        <StepsNavigator step={props.step} handleGoToStep={props.handleGoToStep} />
+        <StepOneContainer />
+      </div>
+    );
+  } else if (props.step === 2) {
+    return (
+      <div>
+        <StepsNavigator step={props.step} handleGoToStep={props.handleGoToStep} />
+        <StepTwoContainer />
+      </div>
+    );
+  } else if (props.step === 3) {
+    return (
+      <div>
+        <StepsNavigator step={props.step} handleGoToStep={props.handleGoToStep} />
+        <StepThreeContainer />
+      </div>
+    );
+  }
+  return (
+    <ThankYouContainer />
+  );
+};
 
 Form.propTypes = {
   step: PropTypes.number.isRequired,
+  handleGoToStep: PropTypes.func.isRequired,
 };
 
 export default Form;

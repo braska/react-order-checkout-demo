@@ -12,7 +12,7 @@ const LeftPane = styled.div`
   box-sizing: border-box;
 
   ${breakpoint('desktop')`
-    width: 60%;
+    width: 55%;
   `};
 `;
 
@@ -22,7 +22,7 @@ const RightPane = styled.div`
   box-sizing: border-box;
 
   ${breakpoint('desktop')`
-    width: 40%;
+    width: 45%;
   `};
 `;
 
