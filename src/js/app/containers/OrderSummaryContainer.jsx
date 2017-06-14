@@ -32,11 +32,42 @@ export default class OrderSummaryContainer extends Component {
         img: Pic3,
       },
     ],
+    editMode: false,
+    itemsCopy: [],
+  };
+
+  setQuantity = (index, quatity) => {
+    const itemsCopy = this.state.itemsCopy;
+    itemsCopy[index].quatity = quatity;
+    this.setState({
+      itemsCopy,
+    });
+  };
+
+  toggleEditMode = (save) => {
+    this.setState({
+      editMode: !this.state.editMode,
+      itemsCopy: this.state.editMode ? [] : this.state.items.map(item => ({ ...item })),
+      items: this.state.editMode && save ? this.state.itemsCopy : this.state.items,
+    });
+  };
+
+  handleDelete = (index) => {
+    const itemsCopy = this.state.itemsCopy;
+    itemsCopy.splice(index, 1);
+    this.setState({
+      itemsCopy,
+    });
   };
 
   render() {
     return (
-      <OrderSummary {...this.state} />
+      <OrderSummary
+        {...this.state}
+        toggleEditMode={this.toggleEditMode}
+        setQuantity={this.setQuantity}
+        handleDelete={this.handleDelete}
+      />
     );
   }
 }
