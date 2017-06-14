@@ -1,0 +1,21 @@
+{
+  "parser"  : "babel-eslint",
+  "extends" : ["airbnb"],
+  "env"     : {
+    "browser" : true
+  },
+  "globals" : {
+    "__DEV__": false
+  },
+  "rules": {
+    "linebreak-style": 0,
+    "react/no-did-mount-set-state": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "./webpack.config.js"
+      }
+    }
+  }
+}

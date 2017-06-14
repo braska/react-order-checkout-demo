@@ -1,4 +1,4 @@
-React Order Checkout Demo
+Order Checkout Demo made with React.js
 ==========================================
 
 # How to run
@@ -11,5 +11,5 @@ npm start
 # How to build for production
 
 ```sh
-NODE_ENV=production webpack -p
+env NODE_ENV=production webpack -p
 ```
