@@ -42,6 +42,7 @@ const StyledCard = styled(Card)`
 `;
 
 const Push = styled.div`
+  height: 16px;
   margin-bottom: auto;
 `;
 

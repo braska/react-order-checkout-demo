@@ -46,6 +46,10 @@ const config = {
         test: /\.css$/,
         use: ['css-loader'],
       },
+      {
+        test: /\.(jpe?g|png|gif)$/,
+        use: 'file-loader',
+      },
     ],
   },
   plugins: [

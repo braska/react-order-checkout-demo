@@ -3,7 +3,9 @@ export const primaryDark = '#4e226b';
 export const primaryLight = '#7a3fa8';
 export const accent = '#ff1876';
 export const accentText = '#c90ea5';
+export const text = '#2f2929';
 export const secondaryText = '#acacac';
+export const secondaryText2 = '#777879';
 export const mutted = '#e8e8e8';
 
 export const gradient1 = '#ebb6e8';
