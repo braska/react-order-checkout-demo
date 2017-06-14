@@ -4,6 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 import normalizeCSS from 'normalize.css/normalize.css';
 import { injectGlobal } from 'styled-components';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import { background } from 'constants/colors';
 import App from './app';
 
 // eslint-disable-next-line no-unused-expressions
@@ -14,7 +15,7 @@ injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic');
   body {
     font-family: Roboto, sans-serif;
-    background-color: #e6e7ef;
+    background-color: ${background};
   }
 `;
 
