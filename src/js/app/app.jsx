@@ -12,6 +12,7 @@ import TermsAndConditions from './components/TermsAndConditions';
 const LeftPane = styled.div`
   padding: 16px 32px;
   box-sizing: border-box;
+  padding-bottom: 56px;
 
   ${breakpoint('desktop')`
     width: 55%;

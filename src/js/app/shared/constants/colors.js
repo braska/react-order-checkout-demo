@@ -7,6 +7,7 @@ export const text = '#2f2929';
 export const secondaryText = '#acacac';
 export const secondaryText2 = '#777879';
 export const mutted = '#e8e8e8';
+export const shadow = '#cecece';
 
 export const gradient1 = '#ebb6e8';
 export const gradient2 = '#ffbad6';
