@@ -28,6 +28,8 @@ const RightPane = styled.div`
 
   ${breakpoint('desktop')`
     width: 45%;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
   `};
 `;
 
