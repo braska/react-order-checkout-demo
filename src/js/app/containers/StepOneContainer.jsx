@@ -1,24 +1,51 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import geocoder from 'services/geocoder';
 import { getSuggestions, getSuggestionValue, getByCode } from 'services/countries';
 import StepOne from '../components/StepOne';
+import { saveStepData } from '../actions/form';
 
+@connect(state => state.form.shippingInfo, { saveStepData: data => saveStepData('shippingInfo', data) })
 export default class StepOneContainer extends Component {
-  state = {
-    name: '',
-    phone: '',
-    streetAddress: '',
-    addressComment: '',
-    city: '',
-    country: '',
-    zip: '',
-    allowedGeolocation: !!navigator.geolocation,
-    loadingGeolocation: false,
-    countrySuggestions: [],
+  static propTypes = {
+    saveStepData: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    streetAddress: PropTypes.string.isRequired,
+    addressComment: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    phone: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired,
+    zip: PropTypes.string.isRequired,
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: this.props.name,
+      phone: this.props.phone,
+      streetAddress: this.props.streetAddress,
+      addressComment: this.props.addressComment,
+      city: this.props.city,
+      country: this.props.country,
+      zip: this.props.zip,
+      allowedGeolocation: !!navigator.geolocation,
+      loadingGeolocation: false,
+      countrySuggestions: [],
+    };
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
+    this.props.saveStepData({
+      name: this.state.name,
+      phone: this.state.phone,
+      streetAddress: this.state.streetAddress,
+      addressComment: this.state.addressComment,
+      city: this.state.city,
+      country: this.state.country,
+      zip: this.state.zip,
+    });
   };
 
   handleFieldChange = field => (event) => {

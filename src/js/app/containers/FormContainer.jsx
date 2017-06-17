@@ -1,21 +1,7 @@
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Form from '../components/Form';
+import {
+  goToStep as handleGoToStep,
+} from '../actions/form';
 
-export default class FormContainer extends Component {
-  state = {
-    step: 1,
-  };
-
-  handleGoToStep = (step) => {
-    this.setState({ step });
-  };
-
-  render() {
-    return (
-      <Form
-        {...this.state}
-        handleGoToStep={this.handleGoToStep}
-      />
-    );
-  }
-}
+export default connect(state => state.form, { handleGoToStep })(Form);
