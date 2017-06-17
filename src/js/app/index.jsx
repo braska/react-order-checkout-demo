@@ -4,6 +4,7 @@ import { AppContainer } from 'react-hot-loader';
 import normalizeCSS from 'normalize.css/normalize.css';
 import { injectGlobal } from 'styled-components';
 import { background } from 'constants/colors';
+import { configureStore } from './store';
 import App from './app';
 
 // eslint-disable-next-line no-unused-expressions
@@ -19,11 +20,12 @@ injectGlobal`
 `;
 
 const rootEl = document.getElementById('root');
+const store = configureStore();
 
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
-      <Component />
+      <Component store={store} />
     </AppContainer>,
     rootEl,
   );

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Provider } from 'react-redux';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import Container from 'components/Container';
@@ -49,24 +51,30 @@ const Push = styled.div`
   margin-bottom: auto;
 `;
 
-const App = () => (
-  <div>
-    <Topbar />
-    <main>
-      <Container>
-        <StyledCard>
-          <LeftPane>
-            <FormContainer />
-          </LeftPane>
-          <RightPane>
-            <OrderSummaryContainer />
-            <Push />
-            <TermsAndConditions />
-          </RightPane>
-        </StyledCard>
-      </Container>
-    </main>
-  </div>
+const App = props => (
+  <Provider store={props.store}>
+    <div>
+      <Topbar />
+      <main>
+        <Container>
+          <StyledCard>
+            <LeftPane>
+              <FormContainer />
+            </LeftPane>
+            <RightPane>
+              <OrderSummaryContainer />
+              <Push />
+              <TermsAndConditions />
+            </RightPane>
+          </StyledCard>
+        </Container>
+      </main>
+    </div>
+  </Provider>
 );
+
+App.propTypes = {
+  store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
 
 export default App;

@@ -6,3 +6,5 @@ import 'react-icon-base';
 import 'styled-components-breakpoint';
 import 'axios';
 import 'react-autosuggest';
+import 'redux';
+import 'react-redux';
