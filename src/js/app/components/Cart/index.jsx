@@ -29,13 +29,13 @@ const StyledCartIcon = styled(CartIcon)`
 
 const Cart = props => (
   <Wrapper {...props}>
-    <Counter>{props.counter}</Counter>
+    <Counter>{props.counter > 99 ? '99+' : props.counter}</Counter>
     <StyledCartIcon size={24} />
   </Wrapper>
 );
 
 Cart.propTypes = {
-  counter: PropTypes.string.isRequired,
+  counter: PropTypes.number.isRequired,
 };
 
 export default Cart;
