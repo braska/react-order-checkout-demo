@@ -5,11 +5,11 @@ Order Checkout Demo made with React.js
 
 ```sh
 npm install
-npm start
+env GEOCODER_API_KEY=pleasegenerateyouownapikey npm start
 ```
 
 ## How to build for production
 
 ```sh
-env NODE_ENV=production webpack -p
+env NODE_ENV=production GEOCODER_API_KEY=pleasegenerateyouownapikey webpack -p
 ```

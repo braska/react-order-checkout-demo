@@ -65,6 +65,7 @@ const config = {
 
     new webpack.DefinePlugin({
       __DEV__: JSON.stringify(NODE_ENV !== 'production'),
+      __GEOCODER_API_KEY___: JSON.stringify(process.env.GEOCODER_API_KEY),
     }),
   ],
   devServer: {
