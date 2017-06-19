@@ -4,7 +4,7 @@ import {
 } from '../actions/form';
 
 const initialState = {
-  step: 1,
+  step: 3,
   shippingInfo: {
     name: '',
     phone: '',
@@ -23,7 +23,12 @@ const initialState = {
     country: '',
     zip: '',
   },
-  paymentInfo: {},
+  paymentInfo: {
+    name: '',
+    number: '',
+    expireDate: '',
+    code: '',
+  },
 };
 
 export default (state = initialState, action) => {

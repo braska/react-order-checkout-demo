@@ -22,7 +22,7 @@ export const Fieldset = styled.fieldset`
   margin-bottom: 24px;
 `;
 
-export const Legend = Title.extend`
+export const Legend = Title.withComponent('legend').extend`
   font-size: 19px;
   margin: 0;
   display: block;
@@ -83,6 +83,33 @@ const InputRightIconWrapper = styled.div`
   text-align: center;
 `;
 
+const Label = Legend.withComponent('label');
+
+const InputWithLabelWrapperContainer = styled.div`
+  margin-bottom: 24px;
+`;
+
+const InputWithLabelWrapper = (props) => {
+  if (props.label) {
+    return (
+      <InputWithLabelWrapperContainer>
+        <Label>{props.label}</Label>
+        {props.children}
+      </InputWithLabelWrapperContainer>
+    );
+  }
+  return props.children;
+};
+
+InputWithLabelWrapper.propTypes = {
+  children: PropTypes.element.isRequired,
+  label: PropTypes.string,
+};
+
+InputWithLabelWrapper.defaultProps = {
+  label: undefined,
+};
+
 const Input = (props) => {
   const rightIcon = props.rightIcon;
 
@@ -95,13 +122,17 @@ const Input = (props) => {
         {(() => {
           if (incomingProps.error) {
             return (
-              <Tooltip label={incomingProps.error}>
-                <InternalInput {...incomingProps} />
-              </Tooltip>
+              <InputWithLabelWrapper {...incomingProps}>
+                <Tooltip label={incomingProps.error}>
+                  <InternalInput {...incomingProps} />
+                </Tooltip>
+              </InputWithLabelWrapper>
             );
           }
           return (
-            <InternalInput {...incomingProps} />
+            <InputWithLabelWrapper {...incomingProps}>
+              <InternalInput {...incomingProps} />
+            </InputWithLabelWrapper>
           );
         })()}
         <InputRightIconWrapper>
@@ -113,13 +144,19 @@ const Input = (props) => {
 
   if (props.error) {
     return (
-      <Tooltip label={props.error}>
-        <InternalInput {...props} />
-      </Tooltip>
+      <InputWithLabelWrapper {...props}>
+        <Tooltip label={props.error}>
+          <InternalInput {...props} />
+        </Tooltip>
+      </InputWithLabelWrapper>
     );
   }
 
-  return <InternalInput {...props} />;
+  return (
+    <InputWithLabelWrapper {...props}>
+      <InternalInput {...props} />
+    </InputWithLabelWrapper>
+  );
 };
 
 Input.propTypes = {

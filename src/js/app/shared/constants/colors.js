@@ -17,3 +17,4 @@ export const background = '#e6e7ef';
 export const backgroundLight = '#f1f3f6';
 
 export const error = '#d72642';
+export const success = '#6ce43b';

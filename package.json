@@ -3,6 +3,7 @@
   "description": "Order Checkout Demo made with React.js",
   "dependencies": {
     "axios": "^0.16.2",
+    "card-validator": "^4.1.0",
     "checkit": "^0.7.0",
     "file-loader": "^0.11.2",
     "normalize.css": "^7.0.0",

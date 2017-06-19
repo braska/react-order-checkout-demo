@@ -8,3 +8,5 @@ import 'axios';
 import 'react-autosuggest';
 import 'redux';
 import 'react-redux';
+import 'checkit';
+import 'card-validator';
