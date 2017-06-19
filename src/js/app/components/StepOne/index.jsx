@@ -48,6 +48,8 @@ const ZipCol = styled.div`
   `};
 `;
 
+const getError = (errors, field) => (errors[field] ? errors[field][0] : undefined);
+
 const StepOne = props => (
   <div>
     <Title>Shipping Info</Title>
@@ -58,6 +60,7 @@ const StepOne = props => (
           type="text"
           placeholder="Full Name"
           value={props.name}
+          error={getError(props.errors, 'name')}
           onChange={props.handleFieldChange('name')}
         />
         <Row>
@@ -66,6 +69,7 @@ const StepOne = props => (
               type="text"
               placeholder="Daytime Phone"
               value={props.phone}
+              error={getError(props.errors, 'phone')}
               onChange={props.handleFieldChange('phone')}
             />
           </PhoneInputCol>
@@ -80,18 +84,21 @@ const StepOne = props => (
           type="text"
           placeholder="Street Address"
           value={props.streetAddress}
+          error={getError(props.errors, 'streetAddress')}
           onChange={props.handleFieldChange('streetAddress')}
         />
         <Input
           type="text"
           placeholder="Apt, Suite, Bldg, Gate Code. (optional)"
           value={props.addressComment}
+          error={getError(props.errors, 'addressComment')}
           onChange={props.handleFieldChange('addressComment')}
         />
         <Input
           type="text"
           placeholder="City"
           value={props.city}
+          error={getError(props.errors, 'city')}
           onChange={props.handleFieldChange('city')}
           rightIcon={
             props.allowedGeolocation
@@ -121,6 +128,7 @@ const StepOne = props => (
                 onChange: props.handleCountryInputChange,
                 placeholder: 'Country',
               }}
+              error={getError(props.errors, 'country')}
             />
           </CountryCol>
           <ZipCol>
@@ -128,6 +136,7 @@ const StepOne = props => (
               type="text"
               placeholder="ZIP"
               value={props.zip}
+              error={getError(props.errors, 'zip')}
               onChange={props.handleFieldChange('zip')}
             />
           </ZipCol>
@@ -159,6 +168,7 @@ StepOne.propTypes = {
     long_name: PropTypes.string.isRequired,
     short_name: PropTypes.string.isRequired,
   })).isRequired,
+  errors: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
 };
 
 export default StepOne;

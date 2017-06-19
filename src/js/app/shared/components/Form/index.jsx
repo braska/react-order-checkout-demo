@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import styled from 'styled-components';
 import Title from 'components/Title';
+import Tooltip from 'components/Tooltip';
 import { primaryLight, primaryDark, secondaryText, text, mutted, shadow } from 'constants/colors';
 
 export const Fieldset = styled.fieldset`
@@ -82,7 +83,18 @@ const Input = (props) => {
     incomingProps.nested = true;
     return (
       <InputWrapper>
-        <InternalInput {...incomingProps} />
+        {(() => {
+          if (incomingProps.error) {
+            return (
+              <Tooltip label={incomingProps.error}>
+                <InternalInput {...incomingProps} />
+              </Tooltip>
+            );
+          }
+          return (
+            <InternalInput {...incomingProps} />
+          );
+        })()}
         <InputRightIconWrapper>
           {rightIcon}
         </InputRightIconWrapper>
@@ -90,17 +102,25 @@ const Input = (props) => {
     );
   }
 
-  return (
-    <InternalInput {...props} />
-  );
+  if (props.error) {
+    return (
+      <Tooltip label={props.error}>
+        <InternalInput {...props} />
+      </Tooltip>
+    );
+  }
+
+  return <InternalInput {...props} />;
 };
 
 Input.propTypes = {
+  error: PropTypes.string,
   rightIcon: PropTypes.element,
 };
 
 Input.defaultProps = {
   rightIcon: undefined,
+  error: undefined,
 };
 
 export { Input };
@@ -178,11 +198,30 @@ const SelectWithAutosuggestWrapper = styled.div`
   }
 `;
 
-export const SelectWithAutosuggest = props => (
+const SelectWithAutosuggest = props => (
   <SelectWithAutosuggestWrapper>
-    <Autosuggest {...props} />
+    {(() => {
+      if (props.error) {
+        return (
+          <Tooltip label={props.error}>
+            <Autosuggest {...props} />
+          </Tooltip>
+        );
+      }
+      return <Autosuggest {...props} />;
+    })()}
   </SelectWithAutosuggestWrapper>
 );
+
+SelectWithAutosuggest.propTypes = {
+  error: PropTypes.string,
+};
+
+SelectWithAutosuggest.defaultProps = {
+  error: undefined,
+};
+
+export { SelectWithAutosuggest };
 
 export const Help = styled.div`
   color: ${secondaryText};

@@ -15,3 +15,5 @@ export const gradient3 = '#d9b2f8';
 
 export const background = '#e6e7ef';
 export const backgroundLight = '#f1f3f6';
+
+export const error = '#d72642';
