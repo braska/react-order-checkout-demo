@@ -11,6 +11,7 @@ export const Row = styled.div`
   ${breakpoint('tablet')`
     display: flex;
     align-items: center;
+    margin-top: -8px;
   `};
 `;
 

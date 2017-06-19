@@ -14,7 +14,15 @@ const initialState = {
     country: '',
     zip: '',
   },
-  billingInfo: {},
+  billingInfo: {
+    name: '',
+    email: '',
+    streetAddress: '',
+    addressComment: '',
+    city: '',
+    country: '',
+    zip: '',
+  },
   paymentInfo: {},
 };
 

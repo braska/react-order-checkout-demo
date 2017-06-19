@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import breakpoint from 'styled-components-breakpoint';
 import Title from 'components/Title';
+import TitleRow from 'components/TitleRow';
 import { Fieldset, Legend, Button, Input, Help, Row } from 'components/Form';
 import AddressFieldsetContainer from '../../containers/AddressFieldsetContainer';
 
@@ -22,7 +23,9 @@ const getError = (errors, field) => (errors[field] ? errors[field][0] : undefine
 
 const StepOne = props => (
   <div>
-    <Title>Shipping Info</Title>
+    <TitleRow>
+      <Title>Shipping Info</Title>
+    </TitleRow>
     <form onSubmit={props.handleSubmit}>
       <Fieldset>
         <Legend>Recipient</Legend>

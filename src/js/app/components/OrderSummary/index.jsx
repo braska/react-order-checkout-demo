@@ -4,13 +4,13 @@ import styled, { keyframes } from 'styled-components';
 import Title from 'components/Title';
 import HR from 'components/HR';
 import Link from 'components/Link';
+import TitleRow from 'components/TitleRow';
 import TrashIcon from 'icons/trash';
 import { mutted, secondaryText2, text, primaryDark, accent, accentText } from 'constants/colors';
 
 const StyledTitle = styled(Title)`
   font-size: 20px;
   margin: 0;
-  float: left;
 `;
 
 const shake = keyframes`
@@ -102,25 +102,18 @@ const TotalRow = styled(SummaryRow)`
   margin-top: 16px;
 `;
 
-const TitleRow = styled.div`
+const StyledTitleRow = TitleRow.extend`
   margin-top: 8px;
   margin-bottom: 16px;
-
-  &::after {
-    content: '';
-    clear: both;
-    display: table;
-  }
 `;
 
 const EditLink = Link.withComponent('div').extend`
-  float: right;
-  vertical-align: bottom;
   font-size: 14px;
   line-height: 23px;
   text-decoration: underline;
   border-bottom: none;
   margin-left: 8px;
+  display: inline-block;
 `;
 
 const ItemQuatitySetBtn = styled.button`
@@ -178,25 +171,27 @@ const Message = styled.div`
 
 const OrderSummary = props => (
   <div>
-    <TitleRow>
+    <StyledTitleRow>
       <StyledTitle>Order Summary</StyledTitle>
-      {(() => {
-        if (props.items.length > 0) {
-          return (
-            <EditLink onClick={() => props.toggleEditMode(true)}>{props.editMode ? 'apply' : 'edit order'}</EditLink>
-          );
-        }
-        return null;
-      })()}
-      {(() => {
-        if (props.editMode) {
-          return (
-            <EditLink onClick={() => props.toggleEditMode(false)}>cancel</EditLink>
-          );
-        }
-        return null;
-      })()}
-    </TitleRow>
+      <div>
+        {(() => {
+          if (props.items.length > 0) {
+            return (
+              <EditLink onClick={() => props.toggleEditMode(true)}>{props.editMode ? 'apply' : 'edit order'}</EditLink>
+            );
+          }
+          return null;
+        })()}
+        {(() => {
+          if (props.editMode) {
+            return (
+              <EditLink onClick={() => props.toggleEditMode(false)}>cancel</EditLink>
+            );
+          }
+          return null;
+        })()}
+      </div>
+    </StyledTitleRow>
     {(() => {
       if (props.items.length > 0) {
         return (
