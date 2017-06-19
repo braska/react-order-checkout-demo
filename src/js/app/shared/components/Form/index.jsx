@@ -2,9 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import styled from 'styled-components';
+import breakpoint from 'styled-components-breakpoint';
 import Title from 'components/Title';
 import Tooltip from 'components/Tooltip';
 import { primaryLight, primaryDark, secondaryText, text, mutted, shadow } from 'constants/colors';
+
+export const Row = styled.div`
+  ${breakpoint('tablet')`
+    display: flex;
+    align-items: center;
+  `};
+`;
 
 export const Fieldset = styled.fieldset`
   border: none;
