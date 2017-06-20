@@ -4,7 +4,7 @@ import StepsNavigator from '../StepsNavigator';
 import StepOneContainer from '../../containers/StepOneContainer';
 import StepTwoContainer from '../../containers/StepTwoContainer';
 import StepThreeContainer from '../../containers/StepThreeContainer';
-import ThankYouContainer from '../../containers/ThankYouContainer';
+import ResultContainer from '../../containers/ResultContainer';
 
 const Form = (props) => {
   if (props.step === 1) {
@@ -30,7 +30,7 @@ const Form = (props) => {
     );
   }
   return (
-    <ThankYouContainer />
+    <ResultContainer />
   );
 };
 

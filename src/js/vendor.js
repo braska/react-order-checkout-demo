@@ -10,3 +10,4 @@ import 'redux';
 import 'react-redux';
 import 'checkit';
 import 'card-validator';
+import 'redux-saga';
