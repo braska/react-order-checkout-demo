@@ -1,6 +1,7 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 const addHash = (template, hash) => (NODE_ENV === 'production' ? template.replace(/\.[^.]+$/, `.[${hash}]$&`) : template);
@@ -67,6 +68,11 @@ const config = {
       __DEV__: JSON.stringify(NODE_ENV !== 'production'),
       __GEOCODER_API_KEY___: JSON.stringify(process.env.GEOCODER_API_KEY),
     }),
+    new CopyWebpackPlugin([
+      {
+        from: 'static',
+      },
+    ]),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'public'),
