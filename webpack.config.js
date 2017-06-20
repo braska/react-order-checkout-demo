@@ -22,7 +22,7 @@ const config = {
   },
   output: {
     path: path.resolve(__dirname, 'public'),
-    publicPath: '/',
+    publicPath: '',
     filename: addHash('assets/js/[name].js', 'chunkhash'),
   },
   devtool: NODE_ENV !== 'production' ? 'cheap-inline-module-source-map' : 'cheap-module-source-map',
