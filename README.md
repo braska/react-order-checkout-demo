@@ -1,6 +1,10 @@
 Order Checkout Demo made with React.js
 ==========================================
 
+[![Build Status](https://travis-ci.org/braska/react-order-checkout-demo.svg?branch=master)](https://travis-ci.org/braska/react-order-checkout-demo)
+
+Demo: https://braska.github.io/react-order-checkout-demo/
+
 ## How to run
 
 ```sh
